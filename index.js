@@ -132,7 +132,7 @@ function hungryDog(weight, age){
       return weight * 0.05;
     } else if (weight >= 6 && weight <= 10) {
       return weight * 0.04;
-    } else if (weight >= 11 &&  weight <= 15) {
+    } else if (weight >= 11 && weight <= 15) {
       return weight * 0.03;
     } else if (weight > 15) {
       return weight * 0.02;
@@ -140,9 +140,9 @@ function hungryDog(weight, age){
   } else {
     if (age >= 2/12 && age <= 4/12) {
       return weight * 0.10;
-    } else if (age >= 4/12 && age <= 7/12) {
+    } else if (age >= 4/12 && age < 7/12) {
       return weight * 0.05;
-    } else if (age >= 7/12 && age <= 1) {
+    } else if (age >= .583) {
       return weight * 0.04;
     }
   }
@@ -170,9 +170,27 @@ RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors
 
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
-
+//1 is scissor, 2 is paper, 3 is rock
+let computerChoice = Math.floor(Math.random() * 3);
 function game(user, computer){
   /*add your code here*/
+  if (computer === user) {
+    return 'it\'s a tie';
+  }
+
+  if (computer === "scissors" && user === "paper") {
+    return 'you lose!';
+  } else if (computer === "scissors" && user === "rock") {
+    return 'you win!';
+  } else if (computer === "paper" && user === "rock") {
+    return 'you lose!';
+  } else if (computer === "paper" && user === "scissors") {
+    return 'you win!';
+  } else if (computer === "rock" && user === "scissors") {
+    return 'you lose!';
+  } else if (computer === "rock" && user === "paper") {
+    return 'you win!';
+  }
 }
 
 
@@ -188,8 +206,9 @@ Using the miles function below do the following:
 3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
+function miles(km){
   /*add your code here*/
+  return km * 0.621371;
 }
 
 
@@ -202,8 +221,9 @@ Using the feet function below do the following:
 3. Return number of feet
 */
 
-function feet(/*add your code here*/){
+function feet(cm){
   /*add your code here*/
+  return cm / 30.48
 }
 
 
@@ -218,8 +238,13 @@ Using the annoyingSong function below do the following:
     "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
+function annoyingSong(counter){
       /*add your code here*/
+
+      for (let i = counter; i >= 0; i--) {
+        return `${i} bottles of soda on the wall, ${i} bottles of soda, take one down pass it around ${counter - 1} bottles of soda on the wall`;
+      }
+
 }
 
 
@@ -227,7 +252,7 @@ function annoyingSong(/*add your code here*/){
 
 //Grade Calculator
 /*
-Using the grade function below do the following: 
+Using the grade function below do the following:
 1. Receive a score out of 100 
 2. Return the corresponding letter grade following this grade scale:
 
@@ -238,8 +263,21 @@ Using the grade function below do the following:
  below should return 'you got an F'
 */
 
-function grade(/*Your Code here */){
+function grade(grade){
 /*Your Code here */
+  if (grade < 60) {
+    return 'you got an F';
+  }
+
+  if (grade>= 90 && grade <=100) {
+    return 'you got an A';
+  } else if (grade >= 80 && grade <=89) {
+      return 'you got a B';
+  } else if (grade >= 70 && grade <= 79) {
+    return 'you got a C';
+  } else if (grade >= 60 && grade <= 69) {
+    return 'you got a D';
+  }
 }
 
 
